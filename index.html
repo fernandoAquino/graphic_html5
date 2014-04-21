@@ -1,1 +1,164 @@
-Hello world
+<!DOCTYPE html>
+<html>
+<style>
+	p.myCode{
+		background-color: #fff;
+		font-size: 2;
+		color: #000;
+	}
+	code.myCode{
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		border: true;
+		border-color: #000;
+		border-width: 1px;
+		border-radius: 2px;
+		background-color: #fff;
+		font-size: 2;
+		//width: 100px;
+		font-family: monospace;
+		color: #000;	
+	}
+	button.DrawCode:hover{
+		background-color: #1122ff;	
+		border-color: #111188;
+		line-height: 1.2;
+		
+		
+
+		-webkit-transition: 0s;
+  		transition: 0s;
+	}
+
+	
+	button.DrawCode:active{
+		background-color: #2233ff;		
+		
+		padding-top: 14px;
+		padding-bottom: 14px;
+		border: none;
+		-webkit-transition: 0s;
+  		transition: 0s;		
+	}
+	button.DrawCode{
+		background-color: #112299;	
+
+		text-shadow: 2px 2px #000;
+		border:true;
+		line-height: 1.2;
+		border-width: 8px;
+		border-left: 0px;
+		border-right: 0px;
+		border-top: 0px;
+		border-bottom: 8px;
+		border-radius: 1px;
+		border-style: solid;
+		border-color: #000077;
+		color: #fff;
+		margin-right: 10px;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		
+		font-size: 16px;
+		font-family: fantasy;
+
+	}
+	input{
+		background-color: #111;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #333;
+		color: #fff;
+	}
+
+</style>
+
+<head>
+	<script type="text/javascript" src="jscolor/jscolor.js"></script>
+	<title>Gerador de gráficos Online</title>
+</head>
+<body bgcolor="#212121">
+<div align="center" style="background-color:#333; box-shadow: 0px 10px 3px #111; ">
+<font face="helvetica" size="5" color="#fff"><h3>LuTeX: Gerador de gráficos online</h3></font>
+</div>
+<div style="float:left; background-color:#222; box-shadow: 0px 10px 3px #111;">
+<font face="verdana" size="2" color="#fff">
+#--Linhas, Textos e Marcadores--#<br>
+</font>
+<textarea id="codigo"rows="20" cols="40" >Line(0,0,10,10);</textarea> <br>
+<font face="verdana" size="2" color="#fff">
+<p>Como usar:<br>
+&nbsp 1.Linhas <br>
+&nbsp <code class="myCode">Line(x1,y1,x2,y2);</code>
+<br> <br>
+&nbsp 2.Marcadores <br>
+&nbsp Insira o eixo ('x' ou 'y') e o valor no eixo &nbsp<br>
+&nbsp <code class="myCode">Marker('x',3);</code>
+<br><br>
+
+&nbsp 3.Textos <br>
+&nbsp Insira o texto, posicao em x e y (pixels)&nbsp<br>
+&nbsp <code class="myCode">Text("Hello",100,100);</code><br>
+&nbsp Para alterar tamanho e cor do texto:<br>
+&nbsp <code class="myCode">SetFont(12,"blue");</code>
+
+
+</p>
+</font>
+	
+</div>
+<div style="margin-left:45px;">
+	&nbsp
+	<button class="DrawCode" onClick="DrawCode()">Desenhar</button>
+	<br>
+	 <br>
+	&nbsp
+<canvas id="myCanvas" width="600" height="300" style="left: 10px; border:1px solid #000; box-shadow: 0px 10px 3px #111;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+<br>
+&nbsp<font face="verdana" size="2" color="#fff">#-- Propriedades iniciais --#
+<br>
+largura: <input id="width" type="number" size="5" value="600">px<br>
+altura: <input id="height" type="number" size="5" value="300">px<br>
+máximo valor em X:<input id="max_x" type="number" size="5" value="12"><br>
+máximo valor em Y:<input id="max_y"type="number" size="5" value="2"><br>
+offset em X: <input id="offset_x" type="number" size="5" value="20" >px<br>
+offset em Y: <input id="offset_y" type="number" size="5" value="20">px<br>
+<!--
+cor de fundo: <input id="background_color" class="color" size="6"><br>
+-->
+cor de fundo: <input id="background_color" type="text" size="6"><br>
+cor do grid: <input id="grid_color" type="text" size="6"><br>
+<input type="checkbox" id="check_grid" checked="yes">grid 
+<input type="checkbox" id="check_axis" value="Car" checked="yes">Eixos 
+<input type="checkbox" id="check_arrows" value="Car" checked="yes">Setas <br>
+</font>
+<!--
+&nbsp <textarea id="cabecalho"rows="5" cols="70">grid=true;
+
+background="#fff";
+max_x=12;
+max_y=2;
+offset_x=40;
+offset_y=30;</textarea> <br>
+-->
+</div>
+<!-- code mirror script -->
+<script type="text/javascript" src="js/grafico.js"></script>
+</body>
+
+<footer>
+	<div align="right">
+<font face="helvetica" size="1.4" color="#fff">
+	(c) Lucas Cassiano - Universidade Federal do Rio Grande do Norte - 2014
+</font>
+</div>
+</footer>
+</html>
